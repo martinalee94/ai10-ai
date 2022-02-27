@@ -103,3 +103,8 @@ Temporary Items
 
 ### 배포시 꼭 삭제
 migrations
+test/
+
+#formatting & linting
+.flake8
+pyproject.toml
