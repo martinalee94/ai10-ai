@@ -60,11 +60,16 @@ def train_test_val_split(path, train_frac=0.8, test_frac=0.5):
     X_train, X_val, y_train, y_val = train_test_split(
         X, y, train_size=train_frac, shuffle=True, stratify=y
     )
-    X_test, X_val, y_test, y_val = train_test_split(
-        X_val, y_val, test_size=test_frac, shuffle=True, stratify=y_val
-    )
-    y_train = tf.keras.utils.to_categorical(y_train)
-    y_test = tf.keras.utils.to_categorical(y_test)
-    y_val = tf.keras.utils.to_categorical(y_val)
-
-    return X_train, X_test, X_val, y_train, y_test, y_val, classes, image_path_df
+    if test_frac==0:
+      y_train = tf.keras.utils.to_categorical(y_train)
+      y_val = tf.keras.utils.to_categorical(y_val)
+      y_test=0
+      X_test=0
+    else:
+      X_test, X_val, y_test, y_val = train_test_split(
+          X_val, y_val, test_size=test_frac, shuffle=True, stratify=y_val
+      )      
+      y_train = tf.keras.utils.to_categorical(y_train)
+      y_test = tf.keras.utils.to_categorical(y_test)
+      y_val = tf.keras.utils.to_categorical(y_val)
+    return  X_train,  X_test, X_val,y_train, y_test, y_val,classes,image_path_df
