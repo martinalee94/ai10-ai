@@ -1,27 +1,6 @@
-import glob
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
-
-
-def combine_poeses_csv(path, save_path):
-    """포즈 별 csv파일을 위치를 받아오면 하나의 csv로 합쳐서 원하는 위치에 저장합니다."""
-    path_list = [f for f in sorted(glob.glob(path + "*.csv"))]
-    #cvs파일 갯수에 맞춰 라벨 인코딩
-    for i in range(len(path_list)):
-        a = pd.read_csv(path_list[i], index_col=0)
-        a.class_no = i
-        a.to_csv(path_list[i])
-
-    poses = range(len(path_list))
-    poses_df = pd.concat([pd.read_csv(path_list[idx], index_col=0) for idx in poses])
-    poses_df.file_name = poses_df[["class_name", "file_name"]].agg("/".join, axis=1)
-    poses_df = poses_df.reset_index()
-    poses_df.drop(columns=["index"], inplace=True)
-    poses_df.to_csv(save_path)
-
-    return None
-
 
 def train_test_val_split(path, train_frac=0.8, test_frac=0.5):
     """Pose estimator에서 나온 csv 데이터셋을 랜덤하게 층화 추출하여 모델 학습용, 검정용, 테스트용으로 나눈다.
