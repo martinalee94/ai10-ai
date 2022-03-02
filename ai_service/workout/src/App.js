@@ -9,7 +9,7 @@ import {loadGraphModel} from '@tensorflow/tfjs-converter';
 import * as poseDetection from '@tensorflow-models/pose-detection';
 
  tf.setBackend("cpu")
-const url='https://raw.githubusercontent.com/yeseulKIM00/test/main/graph/model.json'
+const url='model_url'
 const detectorConfig = {modelType: poseDetection.movenet.modelType.SINGLEPOSE_THUNDER};//SINGLEPOSE_LIGHTNING
 
 function App() {
