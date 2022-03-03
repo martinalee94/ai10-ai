@@ -58,3 +58,8 @@ export function drawKeypoints(keypoints, minConfidence, ctx, scale = 1) {
 
     drawPoint(ctx, keypoint.y *scale, keypoint.x * scale, 3, color);
   }}
+
+
+export  function argMax(array) {
+    return [].reduce.call(array, (m, c, i, arr) => c > arr[m] ? i : m, 0)
+  }
