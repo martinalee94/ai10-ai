@@ -1,8 +1,11 @@
 import * as constants from './constants';
+const courseList=[57,2]  //TODO 해당 운동과도 맞고 0.9이상인 경우에 색상 변경
+const poseCounter=0
+const lineWidth = 8;
 
-const color = "rgb(255, 114, 114)";
-const lineWidth = 4;
-
+export function setColor(index, accuracy){
+ return (index===courseList[poseCounter] ? (accuracy >=0.9 ? 'rgb(119,198,110)' : 'rgb(128,128,128)') : 'rgb(128,128,128)')
+}
 function toTuple({ y, x }) {
   return [y, x];
 }
@@ -26,40 +29,57 @@ export function drawSegment([ay, ax], [by, bx], color, scale, ctx) {
 
 export function getAdjacentPairs() {
       return constants.COCO_CONNECTED_KEYPOINTS_PAIRS;
-  
 }
 
-export function drawSkeleton(keypoints, minConfidence, ctx, scale = 1) {
+export function drawSkeleton(keypoints, minConfidence,index, accuracy, ctx,x,y, scale = 1) {
   const adjacentKeyPoints=getAdjacentPairs()
-
-
-  adjacentKeyPoints.forEach((line) => {
-    if (keypoints[adjacentKeyPoints.indexOf(line)].score > minConfidence){
+  let noKeypoints=0
+    adjacentKeyPoints.slice(4,).forEach((line) => {
+    if (keypoints[adjacentKeyPoints.indexOf(line)].score > minConfidence ){
+      noKeypoints+=1
+      
       drawSegment(
         toTuple(keypoints[line[0]]),
         toTuple(keypoints[line[1]]),
-        color,
+        setColor(index, accuracy),
         scale,
         ctx
       );
+
     }
-  });
+  });  
+  if (noKeypoints<=10){
+    ctx.beginPath();
+    ctx.font='30px Arial';
+    ctx.fillStyle='rgb(255,144,144)';
+    ctx.fillText("화면에 전신이 나오도록 물러서 주세요.",x,y)
+    }
+    
 }
 
 
 
-export function drawKeypoints(keypoints, minConfidence, ctx, scale = 1) {
-  for (let i = 0; i < keypoints.length; i++) {
+export function drawKeypoints(keypoints, minConfidence,index,accuracy, ctx, scale = 1) {
+  for (let i = 5; i < keypoints.length; i++) {
     const keypoint = keypoints[i];
-
+    
     if (keypoint.score < minConfidence) {
-      continue;
-    }
+        continue;
+      } 
 
-    drawPoint(ctx, keypoint.y *scale, keypoint.x * scale, 3, color);
-  }}
-
-
-export  function argMax(array) {
-    return [].reduce.call(array, (m, c, i, arr) => c > arr[m] ? i : m, 0)
+    drawPoint(ctx, keypoint.y *scale, keypoint.x * scale, 3, setColor(index, accuracy));
   }
+}
+
+export function putText(txt, canvas,x,y){
+  const ctx = canvas.current.getContext("2d");
+  ctx.beginPath();
+  // ctx.font='bold 40px Arial';
+  ctx.fillStyle='rgb(255,144,144)';
+  // var accPerct = Math.round(accuracy*100);
+  // ctx.fillText(accPerct,5,40);
+
+  ctx.font='60px Arial';
+  ctx.fillText(txt,x,y);
+
+}
