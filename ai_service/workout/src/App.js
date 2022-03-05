@@ -1,13 +1,18 @@
-import React, { usestate, useRef } from "react";
+import {loadGraphModel} from '@tensorflow/tfjs-converter';
+import * as poseDetection from '@tensorflow-models/pose-detection';
+import React, { useRef ,useState } from "react";
 import "./App.css";
 import Webcam from "react-webcam";
 import { drawSkeleton, putText } from "./util";
 import { average, argMax} from "./setup";
-
 import * as tf from '@tensorflow/tfjs-core';
 import '@tensorflow/tfjs-backend-webgl';
-import {loadGraphModel} from '@tensorflow/tfjs-converter';
-import * as poseDetection from '@tensorflow-models/pose-detection';
+import * as tfjsWasm from '@tensorflow/tfjs-backend-wasm';
+tfjsWasm.setWasmPaths(
+  `https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm@${
+      tfjsWasm.version_wasm}/dist/`);
+
+
 //TODO : 백으로부터 운동 값 가져오기
 const url='https://raw.githubusercontent.com/yeseulKIM00/test/main/graph/model.json'
 const detectorConfig = {modelType: poseDetection.movenet.modelType.SINGLEPOSE_THUNDER};//SINGLEPOSE_LIGHTNING
@@ -21,16 +26,13 @@ const fps=10;
 var iterationCounter=0;
 var errorCounter=0;
 
-// var totalTimeCounter=0
-// var timeCounter= (courseId===0)?5:60;
+var totalTimeCounter=0
+var timeCounter= (courseId===0)?5:60;
+var timeLimit=timeCounter*4*fps; //20s:240s
 
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-  
-  const [timeCounter, setTimeCounter] = usestate(0)
-  const [totalTimeCounter, setTotalTimeCounter] = usestate((courseId===0)?5:60)
-  var timeLimit=timeCounter*4*fps; //20s:240s
 
   const runMovenet = async () => {
     const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet, detectorConfig);
@@ -67,10 +69,7 @@ function App() {
         putText(result[0],canvasRef,50,30);
         //putText(result[1],canvasRef,50,60);
 
-      const workReseults=calWorkouttime(result[0],result[1])
       //putText(workReseults[0],canvasRef,500,30)
-      console.log('프레임당 시간:',workReseults[0],workReseults[1])
-      console.log('window.timeCounter,totalTimeCounter', timeCounter,totalTimeCounter)
     }
      }; 
 
@@ -116,71 +115,6 @@ function App() {
   };
   
 
-function calWorkouttime(poseIndex,accuracy){
-  var tempTimeCounter=timeCounter
-  var tempTotalTimeCounter=totalTimeCounter
-  
- 
-  timeLimit-=1
-  if (timeLimit===0){
-    nextPose()
-    console.log(timeLimit,'제한시간 끝나서 다음 자세로 넘어감')
-    return (tempTimeCounter ,tempTotalTimeCounter)
-  }
- else{
-   //제한시간 끝나지 않고 진행되는 경우
-  if ( accuracy >=0.8){
-
-   if(poseIndex=== courseList[poseCounter]){
-      iterationCounter+=1;
-      console.log('제한시간 내에서 높은 정확도에 해당 운동인 경우 iC+=1 ',iterationCounter)
-      
-      if (iterationCounter ===fps){
-        iterationCounter=0;
-        tempTimeCounter-=1
-        console.log('1초가 된 견우 초기화 하고 시간 1초 빼기',timeCounter,'sec left')
-      
-      }
-      if (timeCounter===0){
-        nextPose()
-        console.log('요가동작 모두 완료한 경우 다음넘어가면서 초기화')
-      }
-      // return (timeCounter ,totalTimeCounter)
-    }
-  }
-    //정확도 낮은 경우 프레임당 에러 횟수 세어 반영(초당 patience 20%)
-  else{
-    errorCounter = errorCounter +1;
-    console.log('==========errorCounter:',errorCounter, 'accuracy:',accuracy)
-    if (errorCounter >=6){ //20%
-      iterationCounter -=errorCounter
-      errorCounter=0
-    }
-    // return (timeCounter ,totalTimeCounter)
-  }   
-  // return (timeCounter ,totalTimeCounter)
-}
-}
-
-
-
-function nextPose(){
-  if (window.poseCounter >=courseList.length ){
-    console.log('운동  코스 끝났음')
-  }
-  else{
-    iterationCounter=0;
-    errorCounter=0;
-    setTimeCounter((courseId===0)?5:60);
-    timeLimit=timeCounter*4*fps
-     //초기화 
-    poseCounter+=1;        
-    setTotalTimeCounter(totalTimeCounter+timeCounter);
-
-  }
-//  return (poseCounter,totalTimeCounter)
-}
-  
   runMovenet();
   // console.log('numBytes : ' + tf.memory().numBytes);
   // console.log('numTensors (outside tidy): ' + tf.memory().numTensors);
