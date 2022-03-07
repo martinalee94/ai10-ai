@@ -82,7 +82,7 @@ export function putText(txt, canvas,x,y){
   // var accPerct = Math.round(accuracy*100);
   // ctx.fillText(accPerct,5,40);
 
-  ctx.font='60px Arial';
+  ctx.font='70px Arial';
   ctx.fillText(txt,x,y);
 
 }

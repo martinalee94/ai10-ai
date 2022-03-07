@@ -22,7 +22,7 @@ const { window } = new JSDOM();
 var courseId=0;              //TODO API
 const courseList=[57,2,15] ; //TODO API
 var poseCounter=0;
-const fps=10;
+const fps=20;
 var iterationCounter=0;
 var errorCounter=0;
 
@@ -43,7 +43,7 @@ function App() {
     }, 1000/fps); //30fps 250 frame 평균: 19.507200004000165
 
   }; 
-
+    var execTime = []
     const detect = async (detector,dnn76) => {
       if (
         typeof webcamRef.current !== "undefined" &&
@@ -58,15 +58,16 @@ function App() {
         webcamRef.current.video.height = videoHeight;
 
         const pose = await detector.estimatePoses(video);
-        //var start = window.performance.now();
+        var start = window.performance.now();
         const result= await classifyPose(dnn76,pose);
-        //var end = window.performance.now();
-        //execTime.push(end - start);
-        //console.log(`Execution time1: ${end - start} ms`);
-
+        var end = window.performance.now();
+        execTime.push(end - start);
+        console.log(`Execution time1: ${end - start} ms`);
+        console.log('어레이, 길이:',execTime,execTime.length );
+        console.log('평균:',average(execTime));
         
         drawCanvas(pose,result[0],result[1], video, videoWidth, videoHeight, canvasRef);
-        putText(result[0],canvasRef,50,30);
+        putText(result[0],canvasRef,50,50);
         //putText(result[1],canvasRef,50,60);
 
       //putText(workReseults[0],canvasRef,500,30)
@@ -88,13 +89,13 @@ function App() {
             inputs.push(score);
           } 
           const inputs1D=tf.tensor(inputs,[1,51])
-          //var start = window.performance.now();
+          // var start = window.performance.now();
           const pred= dnn76.predict(inputs1D)
-          //var end = window.performance.now();
-          //console.log(`Execution time2: ${end - start} ms`);
-          //execTime.push(end - start);
-          //console.log('어레이, 길이:',execTime,execTime.length );
-          //console.log('평균:',average(execTime));
+          // var end = window.performance.now();
+          // console.log(`Execution time2: ${end - start} ms`);
+          // execTime.push(end - start);
+          // console.log('어레이, 길이:',execTime,execTime.length );
+          // console.log('평균:',average(execTime));
 
           const poseIndex = argMax(pred.dataSync() );
           const predict = pred.dataSync(); 
