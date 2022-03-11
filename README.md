@@ -1,66 +1,42 @@
-# (서비스 명)
-- 최종 서비스 명을 위 괄호 부분에 작성하세요.
-- 최종 서비스의 한 줄 소개를 작성하세요.
+# [🧘](https://emojipedia.org/yoga/) WellAI(웰라이)
+  *언제 어디서나 당신의 건강을 책임지는 AI 홈트 서비스, 웰라이*
+## 사용한 언어, 프레임워크, 라이브러리
+<img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=white">
+
+<img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=TensorFlow&logoColor=white"/> <img src="https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white"/></a> 
+
+<img src='https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white'></a> <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/></a>
+<img src='https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white'>
+## 데이터셋 
+- 요가 이미지 데이터 셋
+  - [Yoga-82: A New Dataset for Fine-grained Classification of Human Poses](https://arxiv.org/abs/2004.10362)
+  - [Yoga Pose Image classification dataset](https://www.kaggle.com/shrutisaxena/yoga-pose-image-classification-dataset)
+
+## 역할
+ 1. 인공지능 서비스 초기 기획, 조사 (시장성, 난이도, 실현 가능성 여부 체크)
+ 2. 데이터 수집, 데이터 EDA(Exploratory Data Analysis , 탐색적 데이터 분석), 전처리, 모델로 전처리, 모델링, 모델 평가 및 선택
+ 3. tfjs로 클라이언트 사이드 모델로 변환 및 경량화
+ 4. 메인 서비스 테스트 코드 작성 및 모델 테스트
+
+ ### 자동화
+ - 과정을 최대한 자동화 하도록 노력함
+    - 1. 이미지 수집 
+      -  이미지 진척도 확인
+      -  디렉토리 형식으로 관리
+   - 2. 이미지 전처리
+     - 이미지 형식 조건에 맞지 않으면 제거,변환
+     - 저(低)질의 이미지 딥러닝 모델로 threshold 주어 제거
+  - 3. 데이터 전처리
+    - 자주 사용하는 처리는 함수 만들어 사용
+    - 모델 레이어
+  - 4. 모델 학습
+    - early Stopping
+    - checkpoints
+  - 5. 모델 평가
+   - 자주 사용하는 평가 메트릭 함수 작성(라이브러리 활용)
+  - 6. 모델 하이퍼파라미터 튜닝
+   - Auto ML 활용
 
 
-## 프로젝트 구성 안내
 
-* `bullet point 에 적힌 내용을 수정해 주시면 됩니다.`
-
-* `초기 기획은 언제든 수정될 수 있으니 웹서비스 결과를 내는데 초점을 두시기 바랍니다.`
-
-## 1. 프로젝트 소개
-
-**엔드유저에게 보이는 웹서비스에 대한 소개**
-  - 기술 스택 (React.js, Flask, MySQL 등)
-  - 웹서비스에 대한 자세한 개요
-
-## 2. 프로젝트 기획 의도
-
-**어떤 의도로 프로젝트를 기획했는지에 대한 설명**
-  - 프로젝트 아이디어 동기
-  - 해당 서비스를 통해 해결하고 싶었던 문제를 구체적으로 명시
-
-## 3. 서비스 주요 기능 설명
-
-**웹서비스의 유용성, 편의성 및 시각화의 실용성에 대한 설명**
-  - 주요 기능 (주된 활용성) 및 서브 기능 소개
-  - 프로젝트만의 차별점, 기대 효과
-
-## 4. 프로젝트 구성도
-  - 프로젝트 구조도
-  - 와이어프레임 e.g) figma
-  - 스토리보드
-
-## 5. 프로젝트 팀원 역할 분담
-| 이름 | 담당 업무 |
-| ------ | ------ |
-| 멤버1 | 팀장/프론트엔드 개발 |
-| 멤버2 | 백엔드 개발 |
-| 멤버3 | 인공지능 개발 |
-
-**멤버별 responsibility**
-
-1. 멤버 1: 팀장/프론트엔드 담당
-
-- 기획 단계: 구체적인 설계와 지표에 따른 프로젝트 제안서 작성
-- 개발 단계: 팀원간의 일정 등 조율 + 프론트 or 백엔드 or 인공지능 개발
-- 수정 단계: 기획, 스크럼 진행, 코치님 피드백 반영해서 수정, 발표 준비
-
-2. 멤버 2: 백엔드 담당
-
-- 기획 단계: 큰 주제에서 문제 해결 아이디어 도출, 와이어프레임 작성
-- 개발 단계: 와이어프레임을 기반으로 API 및 데이터베이스 완성
-- 수정 단계: 피드백 반영해서 백엔드 설계 수정
-
-3. 멤버 3: 인공지능 담당
-
-- 기획 단계: 큰 주제에서 문제 해결 아이디어 도출, 와이어프레임 작성
-- 개발 단계: 와이어프레임을 기반으로 인공지능 모델 구현, 모델 학습 진행
-- 수정 단계: 피드백 반영해서 모델 정확도 향상 
-
-## 6. 버전
-  - 프로젝트의 버전 기입
-
-## 7. FAQ
-  - 자주 받는 질문 정리
+```
