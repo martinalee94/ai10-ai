@@ -45,3 +45,7 @@
   - 특정 FPS에서의 inference time 측정, 비교
   - 트레이드 오프 고려해서 모델 선택
 
+### 성과
+- 81 class 기준 val accuracy 92.1% 달성
+- 실시간 웹캠에서도 변형 자세(pose variation)에도 robust하다.
+
