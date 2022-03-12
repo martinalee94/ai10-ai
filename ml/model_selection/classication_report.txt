@@ -1,0 +1,88 @@
+Modelv1 classifcation repot (normalization 적용)
+                                                                            precision    recall  f1-score   support\
+
+                                                       Akarna_Dhanurasana       0.75      1.00      0.86         3\
+                             Bharadvaja's_Twist_pose_or_Bharadvajasana_I_       0.67      0.80      0.73         5\
+                                         Boat_Pose_or_Paripurna_Navasana_       0.94      0.97      0.95        30\
+                                     Bound_Angle_Pose_or_Baddha_Konasana_       0.87      0.91      0.89        22\
+                                                 Bow_Pose_or_Dhanurasana_       0.94      0.94      0.94        17\
+                                 Bridge_Pose_or_Setu_Bandha_Sarvangasana_       1.00      0.92      0.96        25\
+                                                 Camel_Pose_or_Ustrasana_       1.00      0.97      0.98        31\
+                                            Cat_Cow_Pose_or_Marjaryasana_       1.00      1.00      1.00        36\
+                                                Chair_Pose_or_Utkatasana_       0.95      1.00      0.98        21\
+                                                  Child_Pose_or_Balasana_       0.92      1.00      0.96        23\
+                                              Cobra_Pose_or_Bhujangasana_       0.98      0.93      0.95        55\
+                                                            Cockerel_Pose       0.58      0.88      0.70         8\
+                                                 Corpse_Pose_or_Savasana_       0.95      0.90      0.92        20\
+                                            Cow_Face_Pose_or_Gomukhasana_       1.00      0.88      0.93        16\
+                                           Crane_(Crow)_Pose_or_Bakasana_       0.90      0.93      0.92        29\
+                       Dolphin_Plank_Pose_or_Makara_Adho_Mukha_Svanasana_       0.89      1.00      0.94         8\
+                                 Dolphin_Pose_or_Ardha_Pincha_Mayurasana_       1.00      0.89      0.94         9\
+                        Downward-Facing_Dog_pose_or_Adho_Mukha_Svanasana_       0.92      0.92      0.92        24\
+                                                Eagle_Pose_or_Garudasana_       1.00      0.96      0.98        26\
+                                       Eight-Angle_Pose_or_Astavakrasana_       1.00      1.00      1.00         7\
+                                Extended_Puppy_Pose_or_Uttana_Shishosana_       0.90      1.00      0.95         9\
+             Extended_Revolved_Side_Angle_Pose_or_Utthita_Parsvakonasana_       0.94      0.96      0.95        48\
+                  Extended_Revolved_Triangle_Pose_or_Utthita_Trikonasana_       0.94      0.94      0.94        47\
+                             Feathered_Peacock_Pose_or_Pincha_Mayurasana_       0.82      0.95      0.88        19\
+                                            Firefly_Pose_or_Tittibhasana_       0.88      0.64      0.74        11\
+                                                 Fish_Pose_or_Matsyasana_       0.94      0.81      0.87        21\
+                          Four-Limbed_Staff_Pose_or_Chaturanga_Dandasana_       0.87      0.80      0.83        25\
+                                                   Frog_Pose_or_Bhekasana       0.94      0.94      0.94        17\
+                                                Garland_Pose_or_Malasana_       0.95      0.90      0.92        20\
+                                                Gate_Pose_or_Parighasana_       1.00      1.00      1.00        13\
+                    Half_Lord_of_the_Fishes_Pose_or_Ardha_Matsyendrasana_       0.81      0.96      0.88        26\
+                                     Half_Moon_Pose_or_Ardha_Chandrasana_       0.95      0.87      0.91        23\
+                                  Handstand_pose_or_Adho_Mukha_Vrksasana_       0.85      0.94      0.89        18\
+                                      Happy_Baby_Pose_or_Ananda_Balasana_       0.90      0.90      0.90        10\
+                        Head-to-Knee_Forward_Bend_pose_or_Janu_Sirsasana_       1.00      0.67      0.80        12\
+                                              Heron_Pose_or_Krounchasana_       0.83      0.91      0.87        11\
+                            Intense_Side_Stretch_Pose_or_Parsvottanasana_       0.92      0.79      0.85        14\
+                                Legs-Up-the-Wall_Pose_or_Viparita_Karani_       0.69      0.79      0.73        14\
+                                              Locust_Pose_or_Salabhasana_       0.86      0.95      0.90        20\
+                                  Lord_of_the_Dance_Pose_or_Natarajasana_       0.93      0.97      0.95        29\
+                                          Low_Lunge_pose_or_Anjaneyasana_       0.82      0.96      0.88        24\
+                                                  Noose_Pose_or_Pasasana_       0.67      1.00      0.80         2\
+                                              Peacock_Pose_or_Mayurasana_       0.91      0.77      0.83        13\
+                                               Pigeon_Pose_or_Kapotasana_       0.80      1.00      0.89         8\
+                                              Plank_Pose_or_Kumbhakasana_       0.86      1.00      0.92         6\
+                                                   Plow_Pose_or_Halasana_       1.00      1.00      1.00        27\
+Pose_Dedicated_to_the_Sage_Koundinya_or_Eka_Pada_Koundinyanasana_I_and_II       1.00      0.83      0.91         6\
+                                                           Rajakapotasana       1.00      0.86      0.92        21\
+                 Reclining_Hand-to-Big-Toe_Pose_or_Supta_Padangusthasana_       0.65      0.85      0.73        13\
+                  Revolved_Head-to-Knee_Pose_or_Parivrtta_Janu_Sirsasana_       1.00      0.87      0.93        15\
+                                                  Scale_Pose_or_Tolasana_       0.82      0.82      0.82        17\
+                                           Scorpion_pose_or_vrischikasana       1.00      0.83      0.91        18\
+                           Seated_Forward_Bend_pose_or_Paschimottanasana_       0.76      0.90      0.83        21\
+                                 Shoulder-Pressing_Pose_or_Bhujapidasana_       0.78      0.70      0.74        10\
+                              Side-Reclining_Leg_Lift_pose_or_Anantasana_       0.88      0.88      0.88         8\
+                               Side_Crane_(Crow)_Pose_or_Parsva_Bakasana_       0.83      0.71      0.77        14\
+                                         Side_Plank_Pose_or_Vasisthasana_       0.94      0.94      0.94        31\
+                                                  Sitting_pose_1_(normal)       0.92      0.86      0.89        57\
+                                                               Split_pose       0.95      0.83      0.88        23\
+                                                 Staff_Pose_or_Dandasana_       0.85      0.92      0.88        12\
+                                Standing_Forward_Bend_pose_or_Uttanasana_       1.00      0.88      0.94        34\
+                    Standing_Split_pose_or_Urdhva_Prasarita_Eka_Padasana_       0.62      1.00      0.77        10\
+                    Standing_big_toe_hold_pose_or_Utthita_Padangusthasana       1.00      0.90      0.95        20\
+                           Supported_Headstand_pose_or_Salamba_Sirsasana_       0.96      0.83      0.89        29\
+                    Supported_Shoulderstand_pose_or_Salamba_Sarvangasana_       0.86      0.86      0.86        21\
+                                                   Supta_Baddha_Konasana_       0.90      0.86      0.88        22\
+                                                 Supta_Virasana_Vajrasana       0.95      0.95      0.95        20\
+                                                            Tortoise_Pose       0.29      0.50      0.36         4\
+                                                  Tree_Pose_or_Vrksasana_       0.93      0.96      0.94        26\
+                           Upward_Bow_(Wheel)_Pose_or_Urdhva_Dhanurasana_       1.00      0.93      0.96        29\
+        Upward_Facing_Two-Foot_Staff_Pose_or_Dwi_Pada_Viparita_Dandasana_       0.89      0.89      0.89         9\
+                                     Upward_Plank_Pose_or_Purvottanasana_       0.96      1.00      0.98        24\
+                                                    Virasana_or_Vajrasana       0.96      0.89      0.93        28\
+                                  Warrior_III_Pose_or_Virabhadrasana_III_       0.89      0.94      0.92        18\
+                                    Warrior_II_Pose_or_Virabhadrasana_II_       0.93      1.00      0.96        25\
+                                      Warrior_I_Pose_or_Virabhadrasana_I_       0.93      0.76      0.84        17\
+               Wide-Angle_Seated_Forward_Bend_pose_or_Upavistha_Konasana_       0.62      0.71      0.67         7\
+                Wide-Legged_Forward_Bend_pose_or_Prasarita_Padottanasana_       0.88      1.00      0.94        23\
+                                        Wild_Thing_pose_or_Camatkarasana_       0.94      0.88      0.91        17\
+                                    Wind_Relieving_pose_or_Pawanmuktasana       0.85      1.00      0.92        11\
+                          viparita_virabhadrasana_or_reverse_warrior_pose       0.91      0.91      0.91        11\
+\
+                                                                 accuracy                           0.91      1573\
+                                                                macro avg       0.89      0.90      0.89      1573\
+                                                             weighted avg       0.92      0.91      0.91      1573}
