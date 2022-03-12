@@ -33,9 +33,9 @@
   - 자주 사용하는 처리는 함수 만들어 사용
   - 모델 레이어
 4. 모델 학습
-  - early Stopping
-  - checkpoints
-  - imbalanced dataset 해결 방법론 적용, 비교 , 선택
+  - Early Stopping
+  - Checkpoints
+  - imbalanced dataset 해결 방법론 여러가지 적용, 비교, 선택
 5. 모델 평가
   - 자주 사용하는 평가 메트릭 함수 작성(라이브러리 활용)
   - 모델 버전 별로 저장 관리
@@ -50,4 +50,6 @@
 - 81 class 기준 val accuracy 92.1% 달성 
   - Yoga 82 논문 기준 top-1 분류 accuracy 비교 17.14% 높음(계층 구조 중 최하위 클래스 기준 )
 - 실시간 웹캠에서도 변형 자세(pose variation)에도 robust하다.
-
+- 이상적이지 않은 상황을 가정하고 테스트
+  - 가정 1. 실제 학습에 사용되는 모든 클래스의 이미지는 동일하기 힘들다.
+  - 가정 2. 다양한 서비스 이용자 환경을 고려해서 cpu에서도 동작해야 한다.
