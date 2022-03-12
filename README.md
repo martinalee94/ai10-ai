@@ -39,6 +39,7 @@
 5. 모델 평가
   - 자주 사용하는 평가 메트릭 함수 작성(라이브러리 활용)
   - 모델 버전 별로 저장 관리
+    - Accuracy , 클래스별 AUC PR curve(OvR), [정규화된 confusion matrix](ml/model_selection/tuning_classweight.png), [클래스별 precision,recall ,f-1 score](ml/model_selection/classication_report.txt)
 6. 모델 하이퍼파라미터 튜닝
   - Auto ML 활용
 7. 모델 테스트
@@ -46,6 +47,6 @@
   - 트레이드 오프 고려해서 모델 선택
 
 ### 성과
-- 81 class 기준 val accuracy 92.1% 달성
+- 81 class 기준 val accuracy 92.1% 달성 
 - 실시간 웹캠에서도 변형 자세(pose variation)에도 robust하다.
 
