@@ -48,5 +48,6 @@
 
 ### 성과
 - 81 class 기준 val accuracy 92.1% 달성 
+  - Yoga 82 논문 기준 top-1 분류 accuracy 비교 17.14% 높음(계층 구조 중 최하위 클래스 기준 )
 - 실시간 웹캠에서도 변형 자세(pose variation)에도 robust하다.
 
