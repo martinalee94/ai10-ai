@@ -32,7 +32,7 @@
   - 도메인 영역에 따라 data augmentation 적용 
 3. 데이터 전처리
   - 자주 사용하는 처리는 함수 만들어 사용
-  - 모델 레이어
+  - 모델 커스텀 레이어
 4. 모델 학습
   - Early Stopping
   - Checkpoints
