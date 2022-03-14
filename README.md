@@ -1,5 +1,9 @@
 # [🧘](https://emojipedia.org/yoga/) WellAI(웰라이)
   *언제 어디서나 당신의 건강을 책임지는 AI 홈트 서비스, 웰라이*
+
+  ![Alt Text](src/운동.gif)
+
+
 ## 사용한 언어, 프레임워크, 라이브러리
 <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=white">
 
