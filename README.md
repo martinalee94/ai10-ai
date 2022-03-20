@@ -2,13 +2,13 @@
   *언제 어디서나 당신의 건강을 책임지는 AI 홈트 서비스, 웰라이*
   
   
-  메인
+  - 메인
   
-  ![Alt Text](src/메인_스윙.gif)
+    ![Alt Text](src/메인_스윙.gif)
   
-  운동 시연
+  - 운동 시연
   
-  ![Alt Text](src/운동.gif)
+    ![Alt Text](src/운동.gif)
 
 
 ## 사용한 언어, 프레임워크, 라이브러리
